@@ -1,0 +1,10 @@
+Select count (id_projet) from likes where id_projet = ?
+
+
+
+Select id from likes
+group by id_projet
+order by COUNT (id_projet)
+limit 5
+ 
+

@@ -1,0 +1,32 @@
+//STYLES PAGE MAIN
+
+// Boutton poster projet
+.menu--proposition{
+	text-align: center;
+	width: 300px;
+	height: 70px;
+	margin: 15px auto;
+	background-image: url("../img/togglers/btn-prop.jpg");
+	border-radius: 20px;
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position:0px -50px;
+
+	a{
+		padding-top: 25px;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-align-items: center;
+		align-items: center;
+		display: block;
+		width: 100%;
+		height: 100%;
+		font-weight: bold;
+		color: #fff;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+}

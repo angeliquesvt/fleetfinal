@@ -1,0 +1,50 @@
+* {
+    @include box-sizing(border-box);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: $black;
+    text-transform: uppercase;
+    margin-top: 0;
+    font-size: 25px;
+}
+h2 {
+    color: $black;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 21px;
+}
+
+.title{
+    p{
+        font-size: 21px;
+        text-transform: uppercases;
+        font-weight: bold;
+        margin:20px 0px 0px 50px;
+        
+    }
+}
+
+.footer{
+    @include flex(space-around);
+    @include flex-wrap(wrap);
+    li{
+        list-style: none;
+    }
+    i{
+        color:$red;
+    }
+    a{
+        text-decoration: none;
+        &:hover{
+            color:$red;
+        }
+    }
+
+}

@@ -1,0 +1,210 @@
+$searchBorder: #d5d5d5;
+
+.global {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    @include clearfix;
+}
+.flex{
+  @include flex();
+  margin: 10px;
+  justify-content: center;
+}
+.font-size{
+  font-size: 20px;
+}
+
+.menu-toggler {
+    position: fixed;
+    z-index: 9;
+    width: 10px;
+    height: 150px;
+    cursor: pointer;
+    top: calc(50% - 75px);
+    left: 30px;
+    border-radius: 10px;
+    background-color: lighten($lgrey,15);
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: $dgrey;
+    }
+
+}
+//INPUT
+.form-field {
+    width: 100%;
+    margin: 50px auto;
+}
+.field {
+    position: relative;
+    .field-search {
+        position: absolute;
+        top: 17%;
+        right: 30px;
+        padding: 15px;
+
+        background: $red;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: Montserrat;
+        font-weight: 600;
+
+        border-radius: 60px;
+        border: solid 1px $searchBorder;
+        cursor:pointer;
+        @include box-shadow(0 0 0 $white);
+    }
+}
+.field-input {
+    position: relative;
+    width: 100%;
+    padding: 8px 230px 8px 25px;
+    line-height: 16px;
+    height: 32px;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: $black;
+
+    border: none;
+    -webkit-appearance: none;
+    @include box-shadow(0 1px 15px lighten($dgrey, 55));
+
+    background: $white;
+    border: solid 1px $lgrey;
+    border-radius: 30px;
+    height: 50px;
+
+    outline: none;
+
+    transition: box-shadow 0.3s ease-in;
+    &:focus {
+        @include box-shadow(0 1px 15px lighten($dgrey, 50));
+    }
+
+}
+.field-global{
+  position: relative;
+  width: 100%;
+  padding: 8px 120px 8px 25px;
+  line-height: 12px;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: $black;
+  border: none;
+  -webkit-appearance: none;
+  @include box-shadow(0 0px 1px lighten($dgrey, 55));
+  background: $white;
+  border: solid 1px $lgrey;
+  border-radius: 30px;
+  outline: none;
+  transition: box-shadow 0.3s ease-in;
+  &:focus {
+      @include box-shadow(0 1px 10px lighten($dgrey, 50));
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    .global {
+        width: 100%;
+    }
+
+    .menu-toggler {
+        top: 20px;
+        left: 15px;
+        width: 10px;
+        height: 60px;
+        border-radius: 10px;
+    }
+    .field-input {
+        height: 80px;
+        padding: 8px 120px 8px 25px;
+        font-size: 12px;
+    }
+    .field-search {
+        width: 100px;
+        height: 70px;
+        font-size: 15px!important;
+        padding: 0!important;
+        top: 5px!important;
+        right: 4px!important;
+
+    }
+}
+
+.form-button{
+  padding: 25px;
+
+  background: $red;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: Montserrat;
+  font-weight: 600;
+
+  border-radius: 60px;
+  border: solid 1px $searchBorder;
+  cursor:pointer;
+  @include box-shadow(0 0 0 $white);
+  border:none;
+}
+.redspan{
+    color:$red;
+}
+.whitespan{
+    color:$white;
+}
+
+
+//BOUTON DE TELECHARGEMENT
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+  max-width: 80%;
+  font-size: 1.25rem;
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  color: #f1e5e6;
+background-color: $red;
+border-radius: 60px;
+
+
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    cursor: pointer; /* "hand" cursor */
+    background-color: $white;
+
+}
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
