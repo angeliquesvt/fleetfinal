@@ -10,16 +10,19 @@
 	?>
 	<header class="header">
   <?php if(isset($_SESSION['auth'])): ?>
+  <div class="divimg"><a href="main.php"><img class="imggen" src="img/accueil/fleet2.png" alt="logoFleet"/></a></div>
     <div class="nav">
 			<div class="nav-items"><a href="main.php">Accueil</a></div>
 			<div class="nav-items"><a href="allprojets.php">Projets</a></div>
-			<div class="nav-items"><a href="allrevu.php">Revue du jour</a></div>
-			<div class="nav-items"><a href="allparcours.php">Le parcours de</a></div>
+			<div class="nav-items"><a href="allrevu.php">Revues</a></div>
+			<div class="nav-items"><a href="allparcours.php">Parcours</a></div>
 			<div class="nav-items"><a href="profil.php">Profil</a></div>
 			<div class="nav-items"><a href="logout.php">Déconnexion</a></div>
 	</div>
   <?php endif; ?>
 </header>
+<div class="global" id="global">
+
 	<div class="menu-toggler" id="menu-toggler"></div>
 	<!-- SIDEBAR -->
 	<div class="menu" id="menu">
@@ -58,13 +61,13 @@
 		<center>
 			<h1 class="title-articles">Le <span style="color:red">parcours</span> de </h1><hr width="50%"/>
 		</center>
-		
+
 		<?php if($_SESSION['auth']->id_role == '2'){ ?>
-		<div class="link-redac">
-			<center><a href="postparcours.php">Rédiger un article</a></center>
+		<div class="redac">
+			<center><a class="form-button" href="postparcours.php">Rédiger un article</a></center>
 		</div>
 		<?php } ?>
-		
+
 	<div class="h--posts" >
 
 		<?php foreach ($parcours as $parcour): ?>
@@ -82,30 +85,24 @@
 	</div>
 	</div>
     <br><br><br><br><br>
-<footer class="footer">
-	<div class="reseaux" style="position:relative; left:auto;">
-		<table cellpadding=10> 
-		<tr>
-			<td><li class="foot-item"><a href="https://www.facebook.com/Fleet-change-your-world-177344952913438/?hc_ref=ARS6ZUejbmzCW9VHWZKC062UwGJEfvBM9DbdQtFk7oLbycEvxORS708jI82fldH3alo&fref=nf" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="https://twitter.com/fleetcyw" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li></td>
-		</tr>
-		</table>
-	</div>
-	<div style="float:right;">
-		<table cellpadding=10>
-		<tr>
-			<td><li class="foot-item"><a href="apropos.php">A propos </a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="faq.php">FAQ</a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="mention.php">Mentions légales</a></li></td>
-		</tr>
-		</table>
-	</div>
-</footer>
+		<footer class="footer">
+			<div class="footer-content">
+				<div class="footer-socials">
+					<ul>
+						<li class="foot-item"><a href="https://www.facebook.com/Fleet-change-your-world-177344952913438/?hc_ref=ARS6ZUejbmzCW9VHWZKC062UwGJEfvBM9DbdQtFk7oLbycEvxORS708jI82fldH3alo&fref=nf" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+						<li class="foot-item"><a href="" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+						<li class="foot-item"><a href="https://twitter.com/fleetcyw" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+					</ul>
+				</div>
+				<div class="footer-links">
+					<ul>
+						<li class="foot-item"><a href="apropos.php">A propos </a></li>
+						<li class="foot-item"><a href="faq.php">FAQ</a></li>
+						<li class="foot-item"><a href="mention.php">Mentions légales</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
 	<!-- SCRIPTS -->
 	<script src="js/app.js"></script>
 	<script>

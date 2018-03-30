@@ -4,17 +4,20 @@
         display: inline-block;
     }
 }
+.vote-btn form{
+  display: inline-block;
+}
 .vote-btn{
-    display: inline-block;
+    display: inline-grid;
     float: right;
     margin: 25px;
     border:none;
     padding: 0;
     margin: 25 0 0 0;
     transition: color 0.3s;
-    background: transparent;   
+    background: transparent;
     }
 .vote-like:hover, .is-liked .vote-like{
     cursor: pointer;
-    color:green;
+    color:$red;
 }

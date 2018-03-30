@@ -60,6 +60,7 @@ require_once 'inc/bootstrap.php';
  ?>
 
  <?php require_once 'inc/header.php' ?>
+ <div class="glob" id="global">
 
  			<?php if(!empty($errors)): ?>
  				<div class="alert alert-danger">
@@ -74,51 +75,102 @@ require_once 'inc/bootstrap.php';
 
     <!-- SEARCHBAR -->
 
-        <div class="main-caption">
+        <div class="top">
             <div class="form-field">
                 <div class="field-caption">
-                    <h1><span class="redspan>"Fleet </span></h1>
-                    <h2>Vos idées aux yeux du monde entier.</h2>
+                    <h1 class="titre-acc"><span class="redspan">Fleet </span></h1>
+                    <h2 class="soustitre-acc">Vos idées aux yeux du monde entier.</h2>
                 </div>
-                <div class="field">
-                    <input type="text" class="field-input" placeholder="Explorer les projets">
-                    <input type="submit" value="Chercher" class="field-search">
-                </div>
+                <div class="btns-acc">
+					<div class="inscription"><a data-toggle="modal" data-target="#inscription">S'inscrire</a></div>
+				</div>
+				<div class="btns-acc">
+					<div class="connexion"><a data-toggle="modal" data-target="#connexion">Se Connecter</a></div>
+				</div>
             </div>
+		</div>
+		<div class="presentation">
+            <section class="questce">
+				<div class="top">
+					<div class="form-field">
+						<div class="field-caption">
+							<h1 class="titre-acc"><span class="redspan">Qu'est-ce que c'est ?</span></h1>
+							<br>
+							<br>
+							<p class="text-presentation">
+								Bienvenue sur le site Internet de Fleet, là où le partage d’idées et l’entraide autour de<br/>
+								celles-ci n’ont plus de frontière.<br/>
+								<br>
+								Notre but est de vous mettre en relation afin de réaliser vos projets, quel qu’il soit.<br/>
+								Programmeur, designer, photographe, cuisinier, maçon, etc…<br/>
+								<br>
+								Peu importe votre domaine d’activité, vous avez votre place ici, et votre aide permettra de<br/>
+								réaliser de grandes choses. Ici, vous pourrez proposer vos idées, votre projet, qu’importe le<br/>
+								domaine, l’aide voulue ou la taille de celui-ci et partager avec les autres membres.<br/>
+								<br>
+								La communauté Fleet sera là pour vous aider. Vous pourrez évaluer “(jauger)” votre projet<br/>
+								grâce aux conseils, commentaires et réactions de la communauté. Nous assurerons<br/>
+								aussi une protection quant au vol d’idées.
+								<br>
+								Pas question que le plagiat prenne place au sein de notre site!<br/>
+								<br>
+								L’inscription est faite pour s’entraider si on veut aider un projet, et / ou recevoir de l’aide si on en a un, voilà le but!<br/>
+								<br>
+								Des formations seront aussi disponibles pour aller encore plus loin dans la construction de votre projet.<br/>
+								<br>
+								Aide marketing, entrepreneuriat, vous serez accompagné par nos partenaires à travers toutes ces<br/>
+								notions importantes.<br/>
+							</p>
+						</div>
+					</div>
+				</div>
+            </section>
+			<section class="CreaEntraide">
+				<div class="top">
+					<div class="form-field">
+						<div class="field-caption">
+						<div class="marge">
+							<h1 class="titre-acc"><span class="redspan">Entraide et Créativité</span></h1>
+							<br>
+							<br>
+							<p>
+							Nous pensons sincèrement que tout le monde a quelque chose à apporter à ce monde mais<br/>
+							tout le monde n’en a pas conscience.<br/>
+							<br>
+							C’est pourquoi ici nous allons vous accompagner pour vous aider à penser le monde de<br/>
+							demain, avec des rubriques, des inspirations et des conseils créatifs.<br/>
+							<br>
+							Vous ne savez pas ce que vous pouvez apporter au monde ?<br/>
+							Prenez la question autrement, qu’est ce qui vous dérange aujourd’hui autour de vous ou à travers la planète ?<br/>
+							Quelle idée aussi farfelue soit elle pouvez vous proposer ici pour améliorer les choses ?<br/>
+							Ici tout est possible, si votre idée ne plait pas aux gens, tant pis vous en aurez d’autres et cela restera<br/>
+							juste du texte autrement vous risquez, au pire des cas, de concrétiser cette idée et peut être<br/>
+							d’améliorer la vie de centaine, voire de milliers de gens.<br/>
+							<br>
+							Tentez, soyez créatifs, trompez vous. Nous serons là pour vous soutenir.<br/>
+							<br>
+							L’Équipe Fleet.
+							</p>
+						</div>
+						</div>
+					</div>
+				</div>
+			</section>
         </div>
-    <!-- LATEST POSTS -->
-    <div class="h--posts" >
 
-  		<?php foreach ($projets as $projet): ?>
-  			<div class="h--posts-item projet_lifestyle projet">
-  					<a class="h--post-link" href="projet.php?projet=<?php echo $projet->id; ?>"></a>
-  					<div class="h--post-item-img">
-  							<img src="<?php $image->getImage($projet->background, "projets"); ?>" alt="project_image">
-  					</div>
-  					<div class="h--post-desc">
-  							<h1 class="titre"><?php echo $projet->title; ?></h1>
-  							<p><?php echo $projet->baseline; ?></p>
-  							<span class="h--post-subdesc">
-  									 Decouvrez et apportez vos idées.
-  							</span>
-  					</div>
-  			</div>
-  		<?php endforeach; ?>
-  	</div>
     <!-- MODAL -->
     <!-- Modal INSCIPTION -->
     <div class="modal fade" id="inscription" tabindex="-1" role="dialog" aria-labelledby="inscription" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Inscription</h5>
+		  <div class="modal-header">
+            <h5 class="modal-title">Inscritpion</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <form method="POST">
-			<center>
               <table>
                 <tr>
                   <td><label >NOM</label></td>
@@ -135,7 +187,7 @@ require_once 'inc/bootstrap.php';
                 <tr>
                   <td><label >SEXE</label></td>
                   <td>
-				    <input type="radio" name="sexe" value="F" /> FEMME
+				            <input type="radio" name="sexe" value="F" checked/> FEMME
                     <input type="radio" name="sexe" value="H" /> HOMME
                   </td>
                 </tr>
@@ -156,7 +208,6 @@ require_once 'inc/bootstrap.php';
                   <td><input type="password" name="password_confirm" class="field-CoIn"/></td>
                 </tr>
               </table>
-			  </center>
           <div class="modal-footer">
             <button type="submit" class="form-button" name="inscription">Je m'inscris</button>
           </div>
@@ -184,7 +235,9 @@ require_once 'inc/bootstrap.php';
                   <td><input type="text" name="usermail" class="field-CoIn" /></td>
                 </tr>
                 <tr>
-                  <td><label>Mot de passe <a href="remember.php"><br/>(Mot de passe oublié)</a></label></td>
+                  <td><label>Mot de passe
+                    <!-- <a href="remember.php"><br/>(Mot de passe oublié)</a> -->
+                  </label></td>
                   <td><input type="password" name="connexion_password"  class="field-CoIn"/></td>
                 </tr>
                 <tr>
@@ -201,30 +254,23 @@ require_once 'inc/bootstrap.php';
     </div>
   </div>
   </div>
-  <br>
-  <footer class="footer">
-	<div class="reseaux" style="position:relative; left:auto;">
-		<table cellpadding=10> 
-		<tr>
-			<td><li class="foot-item"><a href="https://www.facebook.com/Fleet-change-your-world-177344952913438/?hc_ref=ARS6ZUejbmzCW9VHWZKC062UwGJEfvBM9DbdQtFk7oLbycEvxORS708jI82fldH3alo&fref=nf" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="https://twitter.com/fleetcyw" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li></td>
-		</tr>
-		</table>
-	</div>
-	<div style="float:right;">
-		<table cellpadding=10>
-		<tr>
-			<td><li class="foot-item"><a href="apropos.php">A propos </a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="faq.php">FAQ</a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="mention.php">Mentions légales</a></li></td>
-		</tr>
-		</table>
-	</div>
+  <footer class="footeracc">
+    <div class="footer-content">
+      <div class="footer-socials">
+        <ul>
+          <li class="foot-item"><a href="https://www.facebook.com/Fleet-change-your-world-177344952913438/?hc_ref=ARS6ZUejbmzCW9VHWZKC062UwGJEfvBM9DbdQtFk7oLbycEvxORS708jI82fldH3alo&fref=nf" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+          <li class="foot-item"><a href="" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+          <li class="foot-item"><a href="https://twitter.com/fleetcyw" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+        </ul>
+    	</div>
+    	<div class="footer-links">
+        <ul>
+          <li class="foot-item"><a href="apropos.php">A propos </a></li>
+          <li class="foot-item"><a href="faq.php">FAQ</a></li>
+          <li class="foot-item"><a href="mention.php">Mentions légales</a></li>
+        </ul>
+    	</div>
+    </div>
 </footer>
     <!-- SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

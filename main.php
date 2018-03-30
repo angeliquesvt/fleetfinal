@@ -6,10 +6,11 @@
 	$projets = $db->query("SELECT * FROM projets ORDER BY `projets`.`like_count` DESC LIMIT 5")->fetchAll();
 	$parcours = $db->query("SELECT * FROM parcours ORDER BY `parcours`.`created_at` DESC LIMIT 1")->fetch();
 	$revu = $db->query("SELECT * FROM revu ORDER BY `revu`.`created_at` DESC LIMIT 1")->fetch();
+	$avatar = $db->query("SELECT avatar FROM users WHERE id = ?", [$_SESSION['auth']->id])->fetch();
 
 	$image = new Image();
 	require 'inc/header.php';
-	
+
 	function raccourcirChaine($chaine, $tailleMax)
 	{
     // Variable locale
@@ -25,22 +26,24 @@
 	?>
 	<header class="header">
 		<?php if(isset($_SESSION['auth'])): ?>
+		<div class="divimg"><a href="main.php"><img class="imggen" src="img/accueil/fleet2.png" alt="logoFleet"/></a></div>
 			<div class="nav">
 			<div class="nav-items"><a href="main.php">Accueil</a></div>
 			<div class="nav-items"><a href="allprojets.php">Projets</a></div>
-			<div class="nav-items"><a href="allrevu.php">Revue du jour</a></div>
-			<div class="nav-items"><a href="allparcours.php">Le parcours de</a></div>
+			<div class="nav-items"><a href="allrevu.php">Revues</a></div>
+			<div class="nav-items"><a href="allparcours.php">Parcours</a></div>
 			<div class="nav-items"><a href="profil.php">Profil</a></div>
 			<div class="nav-items"><a href="logout.php">Déconnexion</a></div>
 			</div>
 		<?php endif; ?>
 	</header>
+	<div class="global" id="global">
 	<div class="menu-toggler" id="menu-toggler"></div>
 	<!-- SIDEBAR -->
 	<div class="menu" id="menu">
 			<div class="menu-header">
 					<div class="profile-pic">
-						<img src="<?php $image->getImage($_SESSION['auth']->avatar, "avatar"); ?>" alt="">
+						<img class="pic-rond" src="<?php $image->getImage($avatar->avatar, "avatar"); ?>" alt="">
 					</div>
 					<div class="profile-name">
 							<p><?= $_SESSION['auth']->firstname; ?><span class="redspan"><?php echo $_SESSION['auth']->lastname; ?></span></p>
@@ -86,7 +89,7 @@
 			</div>
 	</div>
 	<div class="menu-btns">
-			<div class="menu--proposition"><a href="postprojet.php">Poster mon projet</a></div>
+		<div class="post-proj"><a href="postprojet.php">Poster mon projet</a></div>
 	</div>
 	<div class="title">
 		<p>Today's best<span class="redspan"> ideas</span> </p>
@@ -113,7 +116,7 @@
 	<div class="title">
 		<p>La <span class="redspan">revue</span> du jour</p>
 	</div>
-	<div class="post-revu"> 
+	<div class="post-revu">
 		<div class="post-revu-img">
 		<img src="<?php $image->getImage($revu->background, "revu"); ?>" alt="">
 		</div>
@@ -128,7 +131,7 @@
 	<div class="title">
 		<p><span class="redspan">Le parcours</span> de...</p>
 	</div>
-	<div class="post-revu"> 
+	<div class="post-revu">
 		<div class="post-revu-img">
 			<img src="<?php $image->getImage($parcours->background, "parcours"); ?>" alt="">
 		</div>
@@ -142,27 +145,21 @@
 	</div>
 </div>
 <footer class="footer">
-	<div class="reseaux" style="position:relative; left:auto;">
-		<table cellpadding=10> 
-		<tr>
-			<td><li class="foot-item"><a href="https://www.facebook.com/Fleet-change-your-world-177344952913438/?hc_ref=ARS6ZUejbmzCW9VHWZKC062UwGJEfvBM9DbdQtFk7oLbycEvxORS708jI82fldH3alo&fref=nf" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="https://twitter.com/fleetcyw" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li></td>
-		</tr>
-		</table>
-	</div>
-	<div style="float:right;">
-		<table cellpadding=10>
-		<tr>
-			<td><li class="foot-item"><a href="apropos.php">A propos </a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="faq.php">FAQ</a></li></td>
-			<td>|</td>
-			<td><li class="foot-item"><a href="mention.php">Mentions légales</a></li></td>
-		</tr>
-		</table>
+	<div class="footer-content">
+		<div class="footer-socials">
+			<ul>
+				<li class="foot-item"><a href="https://www.facebook.com/Fleet-change-your-world-177344952913438/?hc_ref=ARS6ZUejbmzCW9VHWZKC062UwGJEfvBM9DbdQtFk7oLbycEvxORS708jI82fldH3alo&fref=nf" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+				<li class="foot-item"><a href="" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+				<li class="foot-item"><a href="https://twitter.com/fleetcyw" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+			</ul>
+		</div>
+		<div class="footer-links">
+			<ul>
+				<li class="foot-item"><a href="apropos.php">A propos </a></li>
+				<li class="foot-item"><a href="faq.php">FAQ</a></li>
+				<li class="foot-item"><a href="mention.php">Mentions légales</a></li>
+			</ul>
+		</div>
 	</div>
 </footer>
 	<!-- SCRIPTS -->
